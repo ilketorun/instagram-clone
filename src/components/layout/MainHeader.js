@@ -1,9 +1,9 @@
 import classes from "./MainHeader.module.css";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import SearchIcon from "../search/SearchIcon";
-import ClearIcon from "../search/ClearIcon";
-import SearchInput from "../search/SearchInput";
+import SearchIcon from "../Search/SearchIcon";
+import ClearIcon from "../Search/ClearIcon";
+import SearchInput from "../Search/SearchInput";
 
 const MainHeader = () => {
   const [isFocusedSearch, setIsFocusedSearch] = useState(false);
