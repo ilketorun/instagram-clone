@@ -19,6 +19,7 @@
 
 .nav {
   display: flex;
+  justify-content: space-between;
 }
 
 .nav ul {
@@ -46,41 +47,13 @@
 
 .searchBar {
   display: flex;
-
   margin-right: 1.5rem;
   background-color: rgba(239, 239, 239, 255);
   border-radius: 10px;
   padding: 0.5rem;
 }
 
-.search {
-  border: none;
-  border-radius: 10px;
-  height: 20px;
-  width: 100%;
-  padding: 0.25rem 0.5rem;
-  outline: 0;
-  background-color: rgba(239, 239, 239, 255);
-}
-
-.search_icon {
-  position: relative;
-  margin: 10rem;
-}
-
-.clear_icon {
-  cursor: pointer;
-  /* visibility: hidden; */
-}
-
 .searchBar:hover,
 .searchBar:focus {
   border: none;
 }
-
-.search:hover {
-  border: none;
-}
-
-/* Search bar color
-rgba(239,239,239,255) */
