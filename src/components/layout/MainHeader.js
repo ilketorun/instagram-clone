@@ -37,6 +37,9 @@ const MainHeader = () => {
               <NavLink to="/">Home Page</NavLink>
             </li>
             <li>
+              <NavLink to="/upload">Upload</NavLink>
+            </li>
+            <li>
               <NavLink to="/profile">Profile</NavLink>
             </li>
           </ul>

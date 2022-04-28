@@ -1,0 +1,19 @@
+input[type="file"] {
+  display: none;
+}
+.uploadButton {
+  color: rgb(0, 0, 0);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: inline-flex;
+  margin: 1rem 2rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.uploadButton:hover,
+.uploadButton:active {
+  background-color: rgb(180, 180, 180);
+  color: rgb(10, 10, 10);
+}
