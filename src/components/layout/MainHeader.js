@@ -1,11 +1,14 @@
 import classes from "./MainHeader.module.css";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import SearchIcon from "../Search/SearchIcon";
 import ClearIcon from "../Search/ClearIcon";
 import SearchInput from "../Search/SearchInput";
+import AuthContext from "../store/auth-context";
 
 const MainHeader = () => {
+  const authCtx = useContext(AuthContext);
+
   const [isFocusedSearch, setIsFocusedSearch] = useState(false);
 
   const focusOnSearchHandler = () => {
@@ -34,14 +37,25 @@ const MainHeader = () => {
         <div>
           <ul>
             <li>
-              <NavLink to="/">Home Page</NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
-            <li>
-              <NavLink to="/upload">Upload</NavLink>
-            </li>
-            <li>
-              <NavLink to="/profile">Profile</NavLink>
-            </li>
+            {!authCtx.isLoggedIn && (
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+            )}
+
+            {authCtx.isLoggedIn && (
+              <li>
+                <NavLink to="/upload">Upload</NavLink>
+              </li>
+            )}
+
+            {authCtx.isLoggedIn && (
+              <li>
+                <NavLink to="/profile">Profile</NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </div>
