@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={authCtx.isLoggedIn && <Profile />} />
         <Route path="/upload" element={authCtx.isLoggedIn && <Upload />} />
-        <Route path="/login" element={authCtx.isLoggedIn && <LoginPage />} />
+        <Route path="/login" element={!authCtx.isLoggedIn && <LoginPage />} />
       </Routes>
     </Layout>
   );
