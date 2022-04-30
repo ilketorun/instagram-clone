@@ -1,97 +1,84 @@
-import { useRef, useState, useContext } from "react";
+import { useRef, useState, useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../store/auth-context";
-import classes from "./AuthForm.module.css";
 
 const AuthForm = () => {
-  const [isLogin, setIsLogin] = useState(true);
-  const emailInputRef = useRef();
-  const passwordInputRef = useRef();
-  const [isLoading, setIsLoading] = useState(false);
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const switchAuthModeHandler = () => {
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
+
+  const [isLogin, setIsLogin] = useState(true);
+
+  const toogleHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
 
-  const submitHandler = (event) => {
+  const loginHandler = () => {};
+
+  const postAuth = useCallback(async (enteredEmail, enteredPassword, url) => {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          email: enteredEmail,
+          password: enteredPassword,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "applicaiton/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
+
+      const authData = await response.json();
+
+      return authData.idToken;
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const submitHandler = async (event) => {
     event.preventDefault();
 
-    const enteredEmail = emailInputRef.current.value;
+    const enretedEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
-    setIsLoading(true);
-    let url;
-    if (isLogin) {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDB9lY6s8DfSc77CrrtcYdJlBA1zoH2Lww";
-    } else {
+    let url =
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDB9lY6s8DfSc77CrrtcYdJlBA1zoH2Lww";
+
+    if (!isLogin) {
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDB9lY6s8DfSc77CrrtcYdJlBA1zoH2Lww";
     }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify({
-        email: enteredEmail,
-        password: enteredPassword,
-        returnSecureToken: true,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        setIsLoading(false);
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            // show an error modal
-            let errorMessage = "Authentication Failed";
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .then((data) => {
-        authCtx.login(data.idToken);
-        navigate("/", { replace: true });
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
+
+    const idToken = await postAuth(enretedEmail, enteredPassword, url);
+    authCtx.login(idToken);
+
+    navigate("/");
   };
 
   return (
-    <section className={classes.auth}>
+    <section>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <form onSubmit={submitHandler}>
-        <div className={classes.control}>
-          <label htmlFor="email">Your Email</label>
-          <input type="email" id="email" required ref={emailInputRef} />
+        <div>
+          <label htmlFor="email">Email</label>
+          <input id="email" type="email" ref={emailInputRef}></input>
         </div>
-        <div className={classes.control}>
-          <label htmlFor="password">Your Password</label>
-          <input
-            type="password"
-            id="password"
-            required
-            ref={passwordInputRef}
-          />
+        <div>
+          <label htmlFor="password">Password</label>
+          <input id="password" type="password" ref={passwordInputRef}></input>
         </div>
-        <div className={classes.actions}>
-          {!isLoading && (
-            <button>{isLogin ? "Login" : "Create Account"}</button>
-          )}
-          {isLoading && <p>Sending Request...</p>}
-          <button
-            type="button"
-            className={classes.toggle}
-            onClick={switchAuthModeHandler}
-          >
-            {isLogin ? "Create new account" : "Login with existing account"}
-          </button>
-        </div>
+        <button onClick={loginHandler}>{isLogin ? "Login" : "Sign Up"}</button>
+        <button onClick={toogleHandler}>
+          {isLogin ? "Create a new account" : "Login with an existing account"}
+        </button>
       </form>
     </section>
   );
