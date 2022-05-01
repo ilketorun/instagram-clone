@@ -3,7 +3,7 @@ import Button from "../UI/Button";
 import { Fragment, useRef, useState, useEffect } from "react";
 import { storage } from "../Firebase/Firebase";
 import { ref, uploadBytes } from "firebase/storage";
-import { v4 } from "uuid";
+// import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
 const UploadInput = () => {
@@ -18,7 +18,8 @@ const UploadInput = () => {
 
     const inputText = textInputRef.current.value;
 
-    const imageRef = ref(storage, `images/${inputText + " " + v4()}`);
+    // const imageRef = ref(storage, `images/${inputText + "**!" + v4()}`);
+    const imageRef = ref(storage, `images/${inputText}`);
 
     setIsUploading(true);
 
