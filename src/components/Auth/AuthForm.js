@@ -11,11 +11,11 @@ const AuthForm = () => {
 
   const [isLogin, setIsLogin] = useState(true);
 
-  const toogleHandler = () => {
+  const toogleHandler = (event) => {
+    event.preventDefault();
+
     setIsLogin((prevState) => !prevState);
   };
-
-  const loginHandler = () => {};
 
   const postAuth = useCallback(async (enteredEmail, enteredPassword, url) => {
     try {
@@ -60,7 +60,9 @@ const AuthForm = () => {
     const idToken = await postAuth(enretedEmail, enteredPassword, url);
     authCtx.login(idToken);
 
-    navigate("/");
+    if (idToken) {
+      navigate("/", { replace: true });
+    }
   };
 
   return (
@@ -75,7 +77,7 @@ const AuthForm = () => {
           <label htmlFor="password">Password</label>
           <input id="password" type="password" ref={passwordInputRef}></input>
         </div>
-        <button onClick={loginHandler}>{isLogin ? "Login" : "Sign Up"}</button>
+        <button>{isLogin ? "Login" : "Sign Up"}</button>
         <button onClick={toogleHandler}>
           {isLogin ? "Create a new account" : "Login with an existing account"}
         </button>

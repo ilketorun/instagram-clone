@@ -3,8 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import HomePage from "./components/Pages/HomePage";
 import LoginPage from "./components/Pages/LoginPage";
-import Profile from "./components/Pages/Profile";
-import Upload from "./components/Pages/Upload";
+import ProfilePage from "./components/Pages/ProfilePage";
+import UploadPage from "./components/Pages/UploadPage";
 import AuthContext from "./components/store/auth-context";
 
 function App() {
@@ -14,8 +14,11 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/profile" element={authCtx.isLoggedIn && <Profile />} />
-        <Route path="/upload" element={authCtx.isLoggedIn && <Upload />} />
+        <Route
+          path="/profile"
+          element={authCtx.isLoggedIn && <ProfilePage />}
+        />
+        <Route path="/upload" element={authCtx.isLoggedIn && <UploadPage />} />
         <Route path="/login" element={!authCtx.isLoggedIn && <LoginPage />} />
       </Routes>
     </Layout>

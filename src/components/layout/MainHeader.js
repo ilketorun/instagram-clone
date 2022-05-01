@@ -19,6 +19,10 @@ const MainHeader = () => {
     setIsFocusedSearch(false);
   };
 
+  const onLogoutHandler = () => {
+    authCtx.logout();
+  };
+
   return (
     <header className={classes.header}>
       <nav className={classes.nav}>
@@ -54,6 +58,13 @@ const MainHeader = () => {
             {authCtx.isLoggedIn && (
               <li>
                 <NavLink to="/profile">Profile</NavLink>
+              </li>
+            )}
+            {authCtx.isLoggedIn && (
+              <li>
+                <NavLink onClick={onLogoutHandler} to="/login">
+                  Logout
+                </NavLink>
               </li>
             )}
           </ul>

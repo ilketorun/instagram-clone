@@ -1,6 +1,14 @@
 input[type="file"] {
   display: none;
 }
+
+.image {
+  margin: 1rem auto;
+  height: auto;
+  width: 90%;
+  max-width: 40rem;
+}
+
 .uploadButton {
   color: rgb(0, 0, 0);
   border: 1px solid #ccc;

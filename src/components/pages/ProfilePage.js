@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Card from "../UI/Card";
 
-const Profile = () => {
+const ProfilePage = () => {
   return (
     <Fragment>
       <Card>
@@ -11,4 +11,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfilePage;
