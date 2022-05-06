@@ -1,23 +1,10 @@
 import classes from "./MainHeader.module.css";
 import { NavLink } from "react-router-dom";
-import { useContext, useState } from "react";
-import SearchIcon from "../Search/SearchIcon";
-import ClearIcon from "../Search/ClearIcon";
-import SearchInput from "../Search/SearchInput";
+import { useContext } from "react";
 import AuthContext from "../store/auth-context";
 
 const MainHeader = () => {
   const authCtx = useContext(AuthContext);
-
-  const [isFocusedSearch, setIsFocusedSearch] = useState(false);
-
-  const focusOnSearchHandler = () => {
-    setIsFocusedSearch(true);
-  };
-
-  const searchCanceledHandler = () => {
-    setIsFocusedSearch(false);
-  };
 
   const onLogoutHandler = () => {
     authCtx.logout();
@@ -31,13 +18,6 @@ const MainHeader = () => {
         </NavLink>
       </nav>
       <div className={classes.nav}>
-        <div className={classes.searchBar}>
-          {!isFocusedSearch && <SearchIcon />}
-          <SearchInput onFocus={focusOnSearchHandler} />
-          {isFocusedSearch && (
-            <ClearIcon onSearchCanceled={searchCanceledHandler} />
-          )}
-        </div>
         <div>
           <ul>
             <li>
@@ -52,12 +32,6 @@ const MainHeader = () => {
             {authCtx.isLoggedIn && (
               <li>
                 <NavLink to="/upload">Upload</NavLink>
-              </li>
-            )}
-
-            {authCtx.isLoggedIn && (
-              <li>
-                <NavLink to="/profile">Profile</NavLink>
               </li>
             )}
             {authCtx.isLoggedIn && (
