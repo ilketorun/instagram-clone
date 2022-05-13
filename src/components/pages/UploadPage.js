@@ -1,11 +1,14 @@
+import Layout from "../Layout/Layout";
 import Card from "../UI/Card";
 import UploadInput from "../Upload/UploadInput";
 
 const UploadPage = () => {
   return (
-    <Card>
-      <UploadInput />
-    </Card>
+    <Layout>
+      <Card>
+        <UploadInput />
+      </Card>
+    </Layout>
   );
 };
 
