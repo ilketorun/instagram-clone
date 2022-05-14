@@ -17,11 +17,6 @@
 img {
   border: none;
 }
-@media screen and (min-width: 450px) {
-  body {
-    background-color: lightgreen;
-  }
-}
 
 @media screen and (min-width: 875px) {
   body {
@@ -30,18 +25,81 @@ img {
 
   .picturesItems {
     display: flex;
-    /* background-color: green; */
     margin: 0;
     padding: 0;
     border: none;
     box-sizing: border-box;
-    /* width: 28rem; */
-    /* margin: 1rem 1rem; */
   }
 
-  .innerPicture {
+  .innerPictureLofti {
+    z-index: 1;
     position: absolute;
-    top: 47px;
-    right: 18px;
+    top: 59.5px;
+    right: 23px;
+
+    opacity: 0;
+    -webkit-animation: fadeinout 15s linear forwards infinite;
+    animation: fadeinout 15s linear forwards infinite;
+  }
+
+  .innerPictureLilMessage {
+    z-index: 2;
+    position: absolute;
+    top: 59.5px;
+    right: 23px;
+
+    opacity: 0;
+    -webkit-animation: fadeinout2 15s linear forwards infinite;
+    animation: fadeinout2 15s linear forwards infinite;
+  }
+}
+
+@-webkit-keyframes fadeinout {
+  0%,
+  26.6%,
+  66.4%,
+  100% {
+    opacity: 0;
+  }
+  33.2%,
+  59.8% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinout {
+  0%,
+  26.6%,
+  66.4%,
+  100% {
+    opacity: 0;
+  }
+  33.2%,
+  59.8% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeinout2 {
+  0%,
+  59.8%,
+  100% {
+    opacity: 0;
+  }
+  66.4%,
+  93% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinout2 {
+  0%,
+  59.8%,
+  100% {
+    opacity: 0;
+  }
+  66.4%,
+  93% {
+    opacity: 1;
   }
 }
