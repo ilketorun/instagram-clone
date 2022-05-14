@@ -1,6 +1,8 @@
 import { useRef, useState, useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../store/auth-context";
+import classes from "./AuthForm.module.css";
+import Card from "../UI/Card";
 
 const AuthForm = () => {
   const authCtx = useContext(AuthContext);
@@ -66,23 +68,29 @@ const AuthForm = () => {
   };
 
   return (
-    <section>
-      <h1>{isLogin ? "Login" : "Sign Up"}</h1>
-      <form onSubmit={submitHandler}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input id="email" type="email" ref={emailInputRef}></input>
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input id="password" type="password" ref={passwordInputRef}></input>
-        </div>
-        <button>{isLogin ? "Login" : "Sign Up"}</button>
-        <button onClick={toogleHandler}>
-          {isLogin ? "Create a new account" : "Login with an existing account"}
-        </button>
-      </form>
-    </section>
+    <div>
+      <section className={classes.auth}>
+        <h1>{isLogin ? "Login" : "Sign Up"}</h1>
+        <form onSubmit={submitHandler}>
+          <div className={classes.control}>
+            <label htmlFor="email">Email</label>
+            <input id="email" type="email" ref={emailInputRef}></input>
+          </div>
+          <div className={classes.control}>
+            <label htmlFor="password">Password</label>
+            <input id="password" type="password" ref={passwordInputRef}></input>
+          </div>
+          <div className={classes.actions}>
+            <button>{isLogin ? "Login" : "Sign Up"}</button>
+            <button onClick={toogleHandler}>
+              {isLogin
+                ? "Create a new account"
+                : "Login with an existing account"}
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
   );
 };
 
