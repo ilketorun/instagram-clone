@@ -3,15 +3,9 @@
   justify-content: center;
 }
 
-.picturesItem {
+.picturesItems {
   display: none;
-  background-color: aqua;
-  border: none;
-  box-sizing: border-box;
-  /* width: 28rem; */
-  /* margin: 1rem 1rem; */
-  margin: 0;
-  padding: 0;
+  position: relative;
 }
 
 .loginItem {
@@ -34,12 +28,20 @@ img {
     background-color: #f6f6f6;
   }
 
-  .picturesItem {
+  .picturesItems {
     display: flex;
     /* background-color: green; */
     margin: 0;
     padding: 0;
+    border: none;
+    box-sizing: border-box;
     /* width: 28rem; */
     /* margin: 1rem 1rem; */
+  }
+
+  .innerPicture {
+    position: absolute;
+    top: 47px;
+    right: 18px;
   }
 }

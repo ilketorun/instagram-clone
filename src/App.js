@@ -10,13 +10,11 @@ function App() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/upload" element={authCtx.isLoggedIn && <UploadPage />} />
-        <Route path="/login" element={!authCtx.isLoggedIn && <LoginPage />} />
-      </Routes>
-    </Layout>
+    <Routes>
+      <Route path="/login" element={!authCtx.isLoggedIn && <LoginPage />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/upload" element={authCtx.isLoggedIn && <UploadPage />} />
+    </Routes>
   );
 }
 
