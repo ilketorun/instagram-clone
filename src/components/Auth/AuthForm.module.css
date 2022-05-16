@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 27.5rem;
-  border: 1px solid #dbdbdb;
+  border: 1.5px solid #dbdbdb;
   border-radius: 1px;
   background-color: #ffffff;
   margin-left: 2rem;
@@ -13,7 +13,7 @@
 
 .logo {
   margin: 1.69rem auto;
-  width: 240px;
+  width: 215px;
 }
 
 .logo:hover {
@@ -21,27 +21,32 @@
 }
 
 .control {
+  margin-top: 0.8rem;
   margin-bottom: 0.5rem;
 }
 
 .control input {
-  font: inherit;
-  font-size: 13px;
+  font: "sans-serif";
+  font-size: 15.5px;
   height: 50px;
-  padding: ;
-  width: 40px;
+  width: 335px;
   background-color: #fafafa;
   color: #262626;
-  border-radius: 4px;
+  border-radius: 2px;
   border: 1.5px solid #dbdbdb;
-  width: 100%;
   text-align: left;
-  padding: 0.25rem;
+  padding: 0.3rem;
 }
 
 .control input::placeholder {
   color: #8e8e8e;
   padding-left: 0.5rem;
+}
+
+.control input:focus {
+  font-size: 15.5px;
+
+  text-align: left;
 }
 
 .actions {
@@ -54,27 +59,130 @@
 .actions button {
   cursor: pointer;
   font: inherit;
+  font-weight: bolder;
+  font-size: 16.5px;
   color: white;
-  background-color: #9f5ccc;
-  border: 1px solid #9f5ccc;
+  background-color: #0095f6;
+  border: 1px solid #0095f6;
   border-radius: 4px;
+  width: 335px;
+  height: 40px;
   padding: 0.5rem 2.5rem;
+  margin-bottom: 5px;
 }
 
 .actions button:hover {
-  background-color: #873abb;
-  border-color: #873abb;
+  cursor: pointer;
 }
 
-.actions .toggle {
+.orSperator {
+  display: flex;
+  align-items: center;
+  width: 335px;
+  height: 18px;
+  margin: 24px 0px 0px;
+}
+
+.line_1 {
+  height: 1.2px;
+  background-color: #dbdbdb;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.orWord {
+  font: inherit;
+  font-weight: 530;
+  font-size: 16px;
+  color: #8e8e8e;
+}
+
+.line_2 {
+  height: 1.2px;
+  background-color: #dbdbdb;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.loginExample {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginDescriber {
+  color: #385185;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.loginCredentialEmail {
+  color: #01376b;
+  margin: 2px;
+}
+
+.loginCredentialPassword {
+  color: #01376b;
+  margin: 2px;
+  /* margin-bottom: 1px; */
+}
+
+.signUp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 27.5rem;
+  height: 80px;
+  border: 1.5px solid #dbdbdb;
+  border-radius: 1px;
+  background-color: #ffffff;
+  margin-left: 2rem;
   margin-top: 1rem;
-  background-color: transparent;
-  color: #9f5ccc;
-  border: none;
-  padding: 0.15rem 1.5rem;
+  margin-bottom: 10px;
+  padding: 1rem;
 }
 
-.actions .toggle:hover {
-  background-color: transparent;
-  color: #ae82cc;
+.signUpDescription {
+  font: "sans-serif";
+  font-size: 17px;
+}
+
+.signUpButton {
+  border: none;
+  background-color: white;
+  font-size: 18px;
+  color: #0095f6;
+  font-weight: 700;
+}
+
+.signUpButton:hover {
+  cursor: pointer;
+}
+
+.download {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.getTheApp {
+  font-size: 17px;
+  font: "sans-serif";
+  text-align: center;
+  margin: 10px 20px;
+}
+
+.googlePlayAppStore {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.googlePlay {
+  margin: 10px 4px;
+}
+
+.appStore {
+  margin: 10px 4px;
 }

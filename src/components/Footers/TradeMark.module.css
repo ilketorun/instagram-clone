@@ -1,0 +1,12 @@
+.footers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  font: "sans-serif";
+  font-size: 14px;
+  color: #9f9f9f;
+}

@@ -2,8 +2,9 @@ import { useRef, useState, useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../store/auth-context";
 import classes from "./AuthForm.module.css";
-import Card from "../UI/Card";
-import logo from "../Images/Logo/logo2.png";
+import logo from "../Images/Logo/instaLogo.png";
+import googlePlay from "../Images/LoginPage/GooglePlay.png";
+import appStore from "../Images/LoginPage/AppStore.png";
 
 const AuthForm = () => {
   const authCtx = useContext(AuthContext);
@@ -78,22 +79,68 @@ const AuthForm = () => {
               id="email"
               type="email"
               ref={emailInputRef}
-              placeholder="Phone number, username or email"
+              placeholder="Phone number, username, or email"
             ></input>
           </div>
           <div className={classes.control}>
-            <label htmlFor="password">Password</label>
-            <input id="password" type="password" ref={passwordInputRef}></input>
+            <input
+              id="password"
+              type="password"
+              ref={passwordInputRef}
+              placeholder="Password"
+            ></input>
           </div>
+
           <div className={classes.actions}>
-            <button>{isLogin ? "Login" : "Sign Up"}</button>
-            <button onClick={toogleHandler}>
-              {isLogin
-                ? "Create a new account"
-                : "Login with an existing account"}
-            </button>
+            <button>{isLogin ? "Log In" : "Sign Up"}</button>
+            {isLogin && (
+              <div className={classes.orSperator}>
+                <div className={classes.line_1}></div>
+                <p className={classes.orWord}>OR</p>
+                <div className={classes.line_2}></div>
+              </div>
+            )}
+
+            {isLogin && (
+              <div className={classes.loginExample}>
+                <p className={classes.loginDescriber}>
+                  Log in with guest account
+                </p>
+                <p className={classes.loginCredentialEmail}>
+                  Email: guest@guest.com
+                </p>
+                <p className={classes.loginCredentialPassword}>
+                  Password: 123456
+                </p>
+              </div>
+            )}
           </div>
         </form>
+      </section>
+      <section className={classes.signUp}>
+        <p className={classes.signUpDescription}>
+          {isLogin ? `Don't have an account?` : `Have an account?`}
+        </p>
+        <button className={classes.signUpButton} onClick={toogleHandler}>
+          {isLogin ? "Sign up" : "Log In"}
+        </button>
+      </section>
+      <section className={classes.download}>
+        <p className={classes.getTheApp}>Get the App</p>
+        <div className={classes.googlePlayAppStore}>
+          <img
+            width={160}
+            className={classes.googlePlay}
+            src={googlePlay}
+            alt="Download from Google Play"
+          />
+          <img
+            className={classes.appStore}
+            width={160}
+            src={appStore}
+            alt="Download from App Store"
+          />
+        </div>
       </section>
     </div>
   );
