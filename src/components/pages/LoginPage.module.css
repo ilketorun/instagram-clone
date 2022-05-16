@@ -33,75 +33,121 @@ img {
     box-sizing: border-box;
   }
 
-  .innerPictureLofti {
+  .innerPictureBonus {
     z-index: 1;
     position: absolute;
-    top: 59.5px;
+    top: 34px;
     right: 23px;
 
-    opacity: 0;
-    -webkit-animation: fadeinout 15s linear forwards infinite;
-    animation: fadeinout 15s linear forwards infinite;
+    opacity: 1;
   }
 
   .innerPictureLilMessage {
     z-index: 2;
     position: absolute;
-    top: 59.5px;
+    top: 34px;
     right: 23px;
 
     opacity: 0;
-    -webkit-animation: fadeinout2 15s linear forwards infinite;
-    animation: fadeinout2 15s linear forwards infinite;
+    -webkit-animation: fadeinoutLil2 20s linear forwards infinite;
+    animation: fadeinoutLil2 20s linear forwards infinite;
+  }
+
+  .innerPictureLofti {
+    z-index: 3;
+    position: absolute;
+    top: 34px;
+    right: 23px;
+
+    opacity: 0;
+    -webkit-animation: fadeinoutLofti3 20s linear forwards infinite;
+    animation: fadeinoutLofti3 20s linear forwards infinite;
+  }
+
+  .innerPictureYatan {
+    z-index: 4;
+    position: absolute;
+    top: 34px;
+    right: 23px;
+
+    opacity: 1;
+    -webkit-animation: fadeinoutYatan4 20s linear forwards infinite;
+    animation: fadeinoutYatan4 20s linear forwards infinite;
   }
 }
 
-@-webkit-keyframes fadeinout {
+@-webkit-keyframes fadeinoutLil2 {
   0%,
-  26.6%,
-  66.4%,
+  20%,
+  50%,
   100% {
     opacity: 0;
   }
-  33.2%,
-  59.8% {
+  25%,
+  45% {
     opacity: 1;
   }
 }
 
-@keyframes fadeinout {
+@keyframes fadeinoutLil2 {
   0%,
-  26.6%,
-  66.4%,
+  20%,
+  50%,
   100% {
     opacity: 0;
   }
-  33.2%,
-  59.8% {
+  25%,
+  45% {
     opacity: 1;
   }
 }
 
-@-webkit-keyframes fadeinout2 {
+@-webkit-keyframes fadeinoutLofti3 {
   0%,
-  59.8%,
+  45%,
+  75%,
   100% {
     opacity: 0;
   }
-  66.4%,
-  93% {
+  50%,
+  70% {
     opacity: 1;
   }
 }
 
-@keyframes fadeinout2 {
+@keyframes fadeinoutLofti3 {
   0%,
-  59.8%,
+  45%,
+  75%,
   100% {
     opacity: 0;
   }
-  66.4%,
-  93% {
+  50%,
+  70% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeinoutYatan4 {
+  0%,
+  70%,
+  100% {
+    opacity: 0;
+  }
+  75%,
+  95% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinoutYatan4 {
+  0%,
+  70%,
+  100% {
+    opacity: 0;
+  }
+  75%,
+  95% {
     opacity: 1;
   }
 }
