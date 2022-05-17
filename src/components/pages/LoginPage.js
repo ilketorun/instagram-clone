@@ -1,10 +1,15 @@
-// import classes from "./LoginPage.module.css";
-import AuthForm from "../Auth/AuthForm";
-
+import AuthForm from "../Login/AuthForm";
 import TradeMark from "../Footers/TradeMark";
 import ImageSlide from "../ImageSlide/ImageSlide";
+import { useState } from "react";
 
 const LoginPage = () => {
+  const [isLoginCarriedState, setIsLoginCarriedState] = useState();
+
+  const loginHandler = (loginInfo) => {
+    setIsLoginCarriedState(loginInfo);
+  };
+
   return (
     <div>
       <div
@@ -14,8 +19,8 @@ const LoginPage = () => {
           margin: "2.5rem auto",
         }}
       >
-        <ImageSlide />
-        <AuthForm />
+        {isLoginCarriedState && <ImageSlide />}
+        <AuthForm onLoginCarry={loginHandler} />
       </div>
       <TradeMark />
     </div>

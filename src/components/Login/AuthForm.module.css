@@ -1,0 +1,76 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 27.5rem;
+  border: 1.5px solid #dbdbdb;
+  border-radius: 1px;
+  background-color: #ffffff;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  padding: 2rem;
+}
+
+.logo {
+  margin: 1.69rem auto;
+  width: 215px;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.control {
+  margin-top: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.control input {
+  font: "sans-serif";
+  font-size: 15.5px;
+  height: 50px;
+  width: 335px;
+  background-color: #fafafa;
+  color: #262626;
+  border-radius: 2px;
+  border: 1.5px solid #dbdbdb;
+  text-align: left;
+  padding: 0.3rem;
+}
+
+.control input::placeholder {
+  color: #8e8e8e;
+  padding-left: 0.5rem;
+}
+
+.control input:focus {
+  font-size: 15.5px;
+
+  text-align: left;
+}
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actions button {
+  cursor: pointer;
+  font: inherit;
+  font-weight: bolder;
+  font-size: 16.5px;
+  color: white;
+  background-color: #0095f6;
+  border: 1px solid #0095f6;
+  border-radius: 4px;
+  width: 335px;
+  height: 40px;
+  padding: 0.5rem 2.5rem;
+  margin-bottom: 5px;
+}
+
+.actions button:hover {
+  cursor: pointer;
+}

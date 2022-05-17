@@ -1,0 +1,32 @@
+.signUp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 27.5rem;
+  height: 80px;
+  border: 1.5px solid #dbdbdb;
+  border-radius: 1px;
+  background-color: #ffffff;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 10px;
+  padding: 1rem;
+}
+
+.signUpDescription {
+  font: "sans-serif";
+  font-size: 17px;
+}
+
+.signUpButton {
+  border: none;
+  background-color: white;
+  font-size: 18px;
+  color: #0095f6;
+  font-weight: 700;
+}
+
+.signUpButton:hover {
+  cursor: pointer;
+}
