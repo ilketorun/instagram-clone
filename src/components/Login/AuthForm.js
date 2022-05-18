@@ -6,36 +6,17 @@ import logo from "../Images/Logo/instaLogo.png";
 import GetTheApp from "./GetTheApp";
 import SignUp from "./SignUp";
 import GuestCredentials from "./GuestCredentials";
+import EmailInput from "./InputFields/EmailInput";
+import PasswordInput from "./InputFields/PasswordInput";
 
 const AuthForm = (props) => {
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const emailInputRef = useRef();
-  const passwordInputRef = useRef();
+  const [emailInputRef, setEmailInputRef] = useState();
+  const [passwordInputRef, setPasswordInputRef] = useState();
 
   const [isLogin, setIsLogin] = useState(true);
-  const [isTyped, setIsTyped] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-
-  const keyStoreHandler = (event) => {
-    event.preventDefault();
-
-    const typedText = event.target.value;
-
-    console.log(typedText);
-    if (typedText === "") {
-      setIsTyped(false);
-    } else {
-      setIsTyped(true);
-    }
-  };
-
-  const showHideButtonHandler = (event) => {
-    event.preventDefault();
-
-    setShowPassword((prevState) => !prevState);
-  };
 
   const toogleHandler = (event) => {
     event.preventDefault();
@@ -93,39 +74,24 @@ const AuthForm = (props) => {
 
   props.onLoginCarry(isLogin);
 
+  const emailInputHandler = (emailInputRef) => {
+    setEmailInputRef(emailInputRef);
+  };
+
+  const passwordInputHandler = (passwordInputRef) => {
+    setPasswordInputRef(passwordInputRef);
+  };
+
   return (
     <div>
       <section className={classes.auth}>
         <img className={classes.logo} src={logo} alt="Instagram Logo" />
         <form onSubmit={submitHandler}>
           <div className={classes.control}>
-            <input
-              className={classes.emailInput}
-              id="email"
-              type="email"
-              ref={emailInputRef}
-              placeholder="Phone number, username, or email"
-            ></input>
+            <EmailInput onEmailInputRef={emailInputHandler} />
           </div>
           <div className={classes.control}>
-            {
-              <input
-                className={classes.passwordInput}
-                onChange={keyStoreHandler}
-                id="password"
-                type={!showPassword ? `password` : "text"}
-                ref={passwordInputRef}
-                placeholder="Password"
-              ></input>
-            }
-            {isTyped && (
-              <button
-                className={classes.showHideButton}
-                onClick={showHideButtonHandler}
-              >
-                Show
-              </button>
-            )}
+            <PasswordInput onPasswordInputRef={passwordInputHandler} />
           </div>
           <div className={classes.actions}>
             <button>{isLogin ? "Log In" : "Sign Up"}</button>

@@ -1,0 +1,33 @@
+.emailInput {
+  font-size: 16px;
+  color: #262626;
+  text-align: left;
+  border: none;
+  background-color: #fafafa;
+  height: 45px;
+  width: 350px;
+  padding: 0px 0px 0px 12px;
+}
+
+.emailInput {
+  font-size: 16px;
+  color: #262626;
+  text-align: left;
+  border: none;
+  background-color: #fafafa;
+  height: 45px;
+  width: 350px;
+  padding: 0px 0px 0px 12px;
+}
+.emailInput:focus {
+  overflow: hidden;
+  text-align: left;
+  outline-style: solid;
+  outline-width: 1.5px;
+  border-radius: 1.5px;
+  outline-color: #a8a8a8;
+}
+
+.emailTypedInput {
+  outline-color: red;
+}
