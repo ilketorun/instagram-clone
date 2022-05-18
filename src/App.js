@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
 import HomePage from "./components/Pages/HomePage";
 import LoginPage from "./components/Pages/LoginPage";
 import UploadPage from "./components/Pages/UploadPage";

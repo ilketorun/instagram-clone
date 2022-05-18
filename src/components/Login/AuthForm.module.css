@@ -21,32 +21,86 @@
 }
 
 .control {
-  margin-top: 0.8rem;
-  margin-bottom: 0.5rem;
-}
-
-.control input {
-  font: "sans-serif";
-  font-size: 15.5px;
-  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 2px;
+  height: 47px;
   width: 335px;
   background-color: #fafafa;
-  color: #262626;
   border-radius: 2px;
   border: 1.5px solid #dbdbdb;
-  text-align: left;
-  padding: 0.3rem;
 }
 
 .control input::placeholder {
   color: #8e8e8e;
-  padding-left: 0.5rem;
+  font: inherit;
+  font-size: 16px;
 }
 
-.control input:focus {
-  font-size: 15.5px;
-
+.emailInput {
+  font-size: 16px;
+  color: #262626;
   text-align: left;
+  border: none;
+  background-color: #fafafa;
+  height: 45px;
+  width: 350px;
+  padding: 0px 0px 0px 12px;
+}
+
+.emailInput {
+  font-size: 16px;
+  color: #262626;
+  text-align: left;
+  border: none;
+  background-color: #fafafa;
+  height: 45px;
+  width: 350px;
+  padding: 0px 0px 0px 12px;
+}
+.emailInput:focus {
+  overflow: hidden;
+  text-align: left;
+  outline-style: solid;
+  outline-width: 0.2px;
+  outline-color: #a8a8a8;
+}
+
+.passwordInput {
+  font-size: 16px;
+  color: #262626;
+  text-align: left;
+  border: none;
+  background-color: #fafafa;
+  height: 45px;
+  width: 350px;
+  padding: 0px 0px 0px 12px;
+}
+.passwordInput:focus {
+  overflow: hidden;
+  text-align: left;
+
+  outline-style: solid;
+  outline-width: 0.2px;
+  outline-color: #a8a8a8;
+}
+
+.showHideButton {
+  background-color: #fafafa;
+  color: #262626;
+  padding: 0px 12px 0px 0px;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+}
+
+.showHideButton:hover {
+  cursor: pointer;
+}
+
+.showHideButton:active {
+  color: #666666;
 }
 
 .actions {

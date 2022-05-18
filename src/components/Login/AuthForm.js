@@ -15,6 +15,27 @@ const AuthForm = (props) => {
   const passwordInputRef = useRef();
 
   const [isLogin, setIsLogin] = useState(true);
+  const [isTyped, setIsTyped] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const keyStoreHandler = (event) => {
+    event.preventDefault();
+
+    const typedText = event.target.value;
+
+    console.log(typedText);
+    if (typedText === "") {
+      setIsTyped(false);
+    } else {
+      setIsTyped(true);
+    }
+  };
+
+  const showHideButtonHandler = (event) => {
+    event.preventDefault();
+
+    setShowPassword((prevState) => !prevState);
+  };
 
   const toogleHandler = (event) => {
     event.preventDefault();
@@ -79,6 +100,7 @@ const AuthForm = (props) => {
         <form onSubmit={submitHandler}>
           <div className={classes.control}>
             <input
+              className={classes.emailInput}
               id="email"
               type="email"
               ref={emailInputRef}
@@ -86,12 +108,24 @@ const AuthForm = (props) => {
             ></input>
           </div>
           <div className={classes.control}>
-            <input
-              id="password"
-              type="password"
-              ref={passwordInputRef}
-              placeholder="Password"
-            ></input>
+            {
+              <input
+                className={classes.passwordInput}
+                onChange={keyStoreHandler}
+                id="password"
+                type={!showPassword ? `password` : "text"}
+                ref={passwordInputRef}
+                placeholder="Password"
+              ></input>
+            }
+            {isTyped && (
+              <button
+                className={classes.showHideButton}
+                onClick={showHideButtonHandler}
+              >
+                Show
+              </button>
+            )}
           </div>
           <div className={classes.actions}>
             <button>{isLogin ? "Log In" : "Sign Up"}</button>
